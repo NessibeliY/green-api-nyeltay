@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap"
+      rel="stylesheet"
+    />
+  <link href="/static/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="wrapper">
+    <form id="settingsForm"  method="post" class="form">
+      <input
+        type="text"
+        name="idInstance"
+        placeholder="idInstance"
+        class="idInstance input"
+        {{ if .IdInstance }} value="{{.IdInstance}}" {{ else }} value="" {{ end }}
+      />
+      <input
+        type="text"
+        name="apiTokenInstance"
+        placeholder="apiTokenInstance"
+        class="apiTokenInstance input"
+        {{ if .ApiTokenInstance }} value="{{.ApiTokenInstance}}" {{ else }} value="" {{ end }}
+      />
+      <button type="submit" class="getSettings button" name="action" value="/getSettings">
+        getSettings
+      </button>
+      <button type="submit" class="getStateInstance button" name="action" value="/getStateInstance">
+        getStateInstance
+      </button>
+      <input
+        type="text"
+        placeholder="77771234567"
+        name="chatId"
+        class="chatId input"
+      />
+      <textarea name="message" cols="30" rows="10" placeholder="Hello World!" class="message input"></textarea>
+      <button type="submit" class="sendMessage button" name="action" value="/sendMessage">
+        sendMessage
+      </button>
+      <input
+        type="text"
+        placeholder="77771234567"
+        name="chatId2"
+        class="chatId2 input"
+      />
+      <input
+        type="text"
+        placeholder="https://my.site.com/img/horse.png"
+        name="urlFile"
+        class="urlFile input"
+      />
+      <button type="submit" class="sendFileByUrl button" name="action" value="/sendFileByUrl">
+        sendFileByUrl
+      </button>
+    </form>
+    <div class="output">
+      <h4>Ответ</h4>
+      <textarea placeholder='{
+          "idMessage": "3EB0C767D097B7C7C030"
+        }' class="home-textarea textarea">{{.Result}}</textarea>
+    </div>
+  </div>
+
+</body>
+</html>
